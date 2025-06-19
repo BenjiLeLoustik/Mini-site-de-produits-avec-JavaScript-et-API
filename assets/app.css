@@ -896,10 +896,12 @@ body {
   color: #2E2E2E;
   background: #F9F9F9;
   width: 100%;
+  max-width: 100%;
+  max-height: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  overflow: hidden!important;
   /* Header */
   /* Products */
 }
@@ -992,12 +994,20 @@ body header nav.navbar {
   bottom: 0;
   transition: all 0.3s;
   z-index: 1000;
+  display: none;
 }
 html header nav.navbar.activeNavbar,
 body header nav.navbar.activeNavbar {
-  width: 350px;
+  width: 100%;
   right: 0;
   transition: all 0.3s;
+  display: flex;
+}
+@media (min-width: 450px) {
+  html header nav.navbar.activeNavbar,
+  body header nav.navbar.activeNavbar {
+    width: 350px;
+  }
 }
 html header nav.navbar.activeNavbar::after,
 body header nav.navbar.activeNavbar::after {
@@ -1012,8 +1022,14 @@ body header nav.navbar::after {
   left: 0;
   bottom: 0;
   top: 70px;
-  right: 350px;
+  right: 100%;
   display: none;
+}
+@media (min-width: 450px) {
+  html header nav.navbar::after,
+  body header nav.navbar::after {
+    right: 350px;
+  }
 }
 html header nav.navbar .links,
 body header nav.navbar .links {
@@ -1067,7 +1083,9 @@ body .products {
   align-items: flex-start;
   justify-content: flex-start;
   height: 100%;
-  width: 70%;
+  max-height: 100%;
+  overflow: hidden;
+  width: 100%;
   padding: 20px 10px;
   margin: auto;
 }
@@ -1077,7 +1095,9 @@ body .products .list {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   width: 100%;
   height: auto;
-  gap: 10px;
+  gap: 20px;
+  max-height: 100%;
+  overflow: auto;
 }
 html .products .list a.product,
 body .products .list a.product {

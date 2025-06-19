@@ -20,10 +20,12 @@ html, body {
     background: #F9F9F9;
 
     width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    overflow: hidden!important;
 
     .striped {
         background-image: repeating-linear-gradient(45deg, #ebebeb, #ebebeb 5px, transparent 5px, transparent 10px);
@@ -105,11 +107,17 @@ html, body {
             bottom: 0;
             transition: all .3s;
             z-index: 1000;
+            display: none;
 
             &.activeNavbar {
-                width: 350px;
+                width: 100%;
                 right: 0;
                 transition: all .3s;
+                display: flex;
+
+                @media (min-width: 450px){
+                    width: 350px
+                }
 
                 &::after {
                     display: block;
@@ -121,8 +129,12 @@ html, body {
                 position: fixed;
                 height: 100%;
                 background: rgba(0, 0, 0, .3);
-                left: 0; bottom: 0; top: 70px; right: 350px;
+                left: 0; bottom: 0; top: 70px; right: 100%;
                 display: none;
+
+                @media (min-width: 450px){
+                    right: 350px;
+                }
             }
 
             .links {
@@ -185,7 +197,9 @@ html, body {
         justify-content: flex-start;
 
         height: 100%;
-        width: 70%;
+        max-height: 100%;
+        overflow: hidden;
+        width: 100%;
         padding: 20px 10px;
         margin: auto;
 
@@ -194,7 +208,9 @@ html, body {
             grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
             width: 100%;
             height: auto;
-            gap: 10px;
+            gap: 20px;
+            max-height: 100%;
+            overflow: auto;
 
             a.product {
                 display: flex;
