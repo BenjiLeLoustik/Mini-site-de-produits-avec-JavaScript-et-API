@@ -164,11 +164,7 @@ const showProductComments = ( reviews ) => {
 }
 
 /* Initialisation au chargement */
-window.addEventListener("load", function(){
-    
-    console.log( this.window.location.pathname );
-
-    if( this.window.location.pathname.split("/")[1] == "index.html" || this.window.location.pathname.split("/")[1] == "" ){
+if( this.window.location.pathname.split("/")[1] == "index.html" || this.window.location.pathname.split("/")[1] == "" ){
         let products = fetch( "https://dummyjson.com/products")
             .then( response => response.json() )
             .then( data => findAllProducts( data ) )
@@ -195,5 +191,3 @@ window.addEventListener("load", function(){
         }
         
     }
-
-});
