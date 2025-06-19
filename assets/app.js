@@ -1,3 +1,4 @@
+/* Activation / Desactivation de la navbar */
 const toggleResponsiveHeaderNavbar = () => {
     const navbar = document.querySelector("header nav.navbar");
     const button = document.querySelector("header button.toggleResponsiveNavbar");
@@ -6,6 +7,7 @@ const toggleResponsiveHeaderNavbar = () => {
     navbar.classList.toggle("activeNavbar")
 }
 
+/* Recherche et Affichage des produits */
 const findAllProducts = ( products ) => {
     const productsList = document.querySelector(".products .list");
 
@@ -38,15 +40,43 @@ const findAllProducts = ( products ) => {
     }
 }
 
+/* Recherche et affichage d'un produit */
 const findOneProduct = ( product ) => {
-    let productName = product.title;
+    document.title += " " + product.title;
 
-    document.title += " " + productName;
+    /* Affichage de l'image principale du produit */
+    let bigImage = document.querySelector(".product .product-images .big-image img");
+    bigImage.src = product.images[0];
+
+    /* Preview des images du produit */
+    let listImages = document.querySelector(".product .product-images .list-images");
+    for( let i = 0; i < product.images.length; i++ ){
+        let selected = ( i == 0 ) ? 'selected' : '';
+
+        listImages.innerHTML += `<img src='${product.images[i]}' alt='img-${i}' class='striped ${selected} previewImageProduct' onclick='selectPreviewImage( this )' />`;
+    }
+
+    
+
+
 }
 
+/* Affichage d'une image du produit */
+const selectPreviewImage = ( image ) => {
+    let bigImage = document.querySelector(".product .product-images .big-image img");
+    let listImages = document.querySelectorAll(".product .product-images .list-images img");
+
+    bigImage.src = image.src;
+    
+    for( const image of listImages ) image.classList.remove('selected');
+
+    image.classList.add('selected');
+}
+
+/* Initialisation au chargement */
 window.addEventListener("load", function(){
     
-    if( this.window.location.pathname.split("/")[1] == "index.html" ){
+    if( this.window.location.pathname.split("/")[1] == "index.html" || this.window.location.pathname.split("/")[1] == "" ){
         let products = fetch( "https://dummyjson.com/products")
             .then( response => response.json() )
             .then( data => findAllProducts( data ) )
