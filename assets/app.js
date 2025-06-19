@@ -58,7 +58,8 @@ const findOneProduct = ( product ) => {
 
     /* Affichage de la marque du produit */
     let productBrandHTML         = document.querySelector(".product-informations .product-brand");
-    productBrandHTML.innerText   = product.brand;
+    productBrandHTML.innerText   = ( product.brand != undefined ) ? product.brand : "";
+    if( product.brand == undefined ) productBrandHTML.remove();
 
     /* Affichage du titre du produit */
     let productTitleHTML        = document.querySelector(".product-informations .product-title");
@@ -130,6 +131,7 @@ const selectPreviewImage = ( image ) => {
     image.classList.add('selected');
 }
 
+/* Affichage des commentaires d'un produit */
 const showProductComments = ( reviews ) => {
     let reviewsContent = document.querySelector(".product .reviews");
     for( const review of reviews ){
