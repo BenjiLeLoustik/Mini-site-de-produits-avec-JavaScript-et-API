@@ -1,3 +1,5 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
 @font-face {
   font-family: 'Inter';
   font-style: italic;
@@ -1201,17 +1203,23 @@ body .product {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  gap: 40px;
   height: auto;
-  overflow: hidden;
+  max-height: 100%;
+  overflow: auto;
   margin: 0 auto;
   width: 100%;
   padding: 10px;
 }
+html .product::-webkit-scrollbar,
+body .product::-webkit-scrollbar {
+  display: none;
+}
 @media (min-width: 1180px) {
   html .product,
   body .product {
-    width: 1180px;
     padding: 20px 10px;
+    width: 1180px;
   }
 }
 html .product .view,
@@ -1221,10 +1229,8 @@ body .product .view {
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  height: 100%;
+  height: auto;
   width: 100%;
-  max-height: 100%;
-  overflow: auto;
 }
 @media (min-width: 980px) {
   html .product .view,
@@ -1466,4 +1472,128 @@ html .product .view .product-informations .product-shipping .txt,
 body .product .view .product-informations .product-shipping .txt {
   font-weight: 700;
   color: #2E2E2E;
+}
+html .product .reviews,
+body .product .reviews {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: auto;
+}
+html .product .reviews .title,
+body .product .reviews .title {
+  width: 100%;
+  font-weight: 600;
+  color: #2E2E2E;
+}
+html .product .reviews .review,
+body .product .reviews .review {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+}
+html .product .reviews .review .reviewerAvatar,
+body .product .reviews .review .reviewerAvatar {
+  min-width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+html .product .reviews .review .content,
+body .product .reviews .review .content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+html .product .reviews .review .content .reviewerName,
+body .product .reviews .review .content .reviewerName {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+@media (max-width: 660px) {
+  html .product .reviews .review .content .reviewerName,
+  body .product .reviews .review .content .reviewerName {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+html .product .reviews .review .content .reviewerName .name,
+body .product .reviews .review .content .reviewerName .name {
+  font-weight: 700;
+  color: #2E2E2E;
+}
+html .product .reviews .review .content .reviewerName .email,
+body .product .reviews .review .content .reviewerName .email {
+  font-weight: 300;
+  color: #505050;
+}
+html .product .reviews .review .content .reviewerComment,
+body .product .reviews .review .content .reviewerComment {
+  height: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2E2E2E;
+  width: 100%;
+}
+@media (max-width: 660px) {
+  html .product .reviews .review .content .reviewerComment,
+  body .product .reviews .review .content .reviewerComment {
+    text-align: center;
+  }
+}
+html .product .reviews .review .content .reviewerDate,
+body .product .reviews .review .content .reviewerDate {
+  text-align: left;
+  font-weight: 400;
+  font-size: 13px;
+  color: #505050;
+  width: 100%;
+}
+@media (max-width: 660px) {
+  html .product .reviews .review .content .reviewerDate,
+  body .product .reviews .review .content .reviewerDate {
+    text-align: center;
+  }
+}
+html .product .reviews .review .rate,
+body .product .reviews .review .rate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  width: 100%;
+}
+html .product .reviews .review .rate i.fi-sr-star,
+body .product .reviews .review .rate i.fi-sr-star {
+  color: #ffc107;
+}
+html .product .reviews .review .rate i.fi-rr-star,
+body .product .reviews .review .rate i.fi-rr-star {
+  color: #505050;
+}
+@media (max-width: 660px) {
+  html .product .reviews .review .rate,
+  body .product .reviews .review .rate {
+    justify-content: center;
+  }
+}
+@media (max-width: 660px) {
+  html .product .reviews .review,
+  body .product .reviews .review {
+    flex-direction: column;
+    justify-content: center;
+  }
 }

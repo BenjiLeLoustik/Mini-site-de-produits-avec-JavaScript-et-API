@@ -109,6 +109,13 @@ const findOneProduct = ( product ) => {
     /* Affiche de la livraison du produit */
     let productShippingTxtHTML = document.querySelector(".product-informations .product-shipping .txt");
     productShippingTxtHTML.innerHTML = product.shippingInformation;
+
+    /* Affichage du nombre de commentaires d'un produit */
+    let productCountComments = document.querySelector(".product .reviews .title span.countComment");
+    productCountComments.innerText = product.reviews.length;
+
+    /* Affichage des commentaires du produits */
+    showProductComments( product.reviews );
 }
 
 /* Affichage d'une image du produit */
@@ -121,6 +128,37 @@ const selectPreviewImage = ( image ) => {
     for( const image of listImages ) image.classList.remove('selected');
 
     image.classList.add('selected');
+}
+
+const showProductComments = ( reviews ) => {
+    let reviewsContent = document.querySelector(".product .reviews");
+    for( const review of reviews ){
+
+        let rateStars = "";
+
+        for( let i = 0; i < review.rating; i++ ){
+            rateStars += '<i class="fi fi-sr-star"></i>';
+        }
+
+        for( let j = 0; j < 5 - review.rating; j++ ){
+            rateStars += '<i class="fi fi-rr-star"></i>';
+        }
+
+        reviewsContent.innerHTML += `<div class="review striped">
+                                        <div class="reviewerAvatar striped"></div>
+                                        <div class="content">
+                                            <div class="reviewerName">
+                                                <span class="name">${review.reviewerName}</span>
+                                                <span class="email">(${review.reviewerEmail})</span>
+                                            </div>
+                                            <div class="reviewerComment">${review.comment}</div>
+                                            <div class="reviewerDate">${review.date}</div>
+                                        </div>
+                                        <div class="rate">
+                                            ${rateStars}
+                                        </div>
+                                    </div>`;
+    }
 }
 
 /* Initialisation au chargement */
