@@ -6,7 +6,7 @@ const toggleResponsiveHeaderNavbar = () => {
     navbar.classList.toggle("activeNavbar")
 }
 
-const showProduct = ( products ) => {
+const findAllProducts = ( products ) => {
     const productsList = document.querySelector(".products .list");
 
     let allProducts = products.products;
@@ -38,11 +38,40 @@ const showProduct = ( products ) => {
     }
 }
 
+const findOneProduct = ( product ) => {
+    let productName = product.title;
+
+    document.title += " " + productName;
+}
+
 window.addEventListener("load", function(){
     
-    let products = fetch( "https://dummyjson.com/products")
-        .then( response => response.json() )
-        .then( data => showProduct( data ) )
-        .catch( error => console.error( `Erreur : ${error}` ) );
+    if( this.window.location.pathname.split("/")[1] == "index.html" ){
+        let products = fetch( "https://dummyjson.com/products")
+            .then( response => response.json() )
+            .then( data => findAllProducts( data ) )
+            .catch( error => console.error( `Erreur : ${error}` ) );
+    }
+    
+    if( this.window.location.pathname.split("/")[1] == "detailsProduct.html" ){
+        let paramsURL = new URLSearchParams( location.search );
         
+        if( paramsURL.size == 1 ){
+
+            let articleId = paramsURL.get("id");
+            if( articleId == undefined || articleId == "" ){
+                this.window.location.href = "./index.html";
+            }
+
+            let products = fetch( `https://dummyjson.com/products/${articleId}`)
+                .then( response => response.json() )
+                .then( data => findOneProduct( data ) )
+                .catch( error => console.error( `Erreur : ${error}` ) );
+
+        }else{
+            this.window.location.href = "./index.html";
+        }
+        
+    }
+
 });

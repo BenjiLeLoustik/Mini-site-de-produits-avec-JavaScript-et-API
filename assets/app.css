@@ -904,6 +904,7 @@ body {
   overflow: hidden!important;
   /* Header */
   /* Products */
+  /* Product */
 }
 html .striped,
 body .striped {
@@ -1094,9 +1095,9 @@ body .products .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   width: 100%;
-  height: auto;
   gap: 20px;
   max-height: 100%;
+  height: auto;
   overflow: auto;
 }
 html .products .list a.product,
@@ -1108,7 +1109,8 @@ body .products .list a.product {
   gap: 5px;
   text-decoration: none;
   width: 100%;
-  height: auto;
+  height: 150px;
+  min-height: 300px;
   border-radius: 10px;
   background: transparent;
   transition: all 0.3s;
@@ -1118,6 +1120,7 @@ body .products .list a.product .product-img {
   background: #FFFFFF;
   width: 100%;
   height: 150px;
+  min-height: 150px;
   border-radius: 10px;
   position: relative;
 }
@@ -1153,6 +1156,7 @@ body .products .list a.product .product-name {
   color: #2E2E2E;
   width: 100%;
   height: 40px;
+  min-height: 40px;
 }
 html .products .list a.product .product-rate,
 body .products .list a.product .product-rate {
@@ -1164,6 +1168,7 @@ body .products .list a.product .product-rate {
   font-weight: 500;
   width: 100%;
   height: 30px;
+  min-height: 30px;
 }
 html .products .list a.product .product-rate b,
 body .products .list a.product .product-rate b {
@@ -1183,9 +1188,33 @@ body .products .list a.product .product-price {
   font-weight: 700;
   width: 100%;
   height: 40px;
+  min-height: 40px;
 }
 html .products .list a.product:hover,
 body .products .list a.product:hover {
   background: #FFFFFF;
   transition: all 0.3s;
+}
+html .product,
+body .product {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 10px;
+  margin: auto;
+}
+html .product .view,
+body .product .view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  width: 100%;
+  height: auto;
+  gap: 20px;
+  max-height: 100%;
+  overflow: auto;
 }
