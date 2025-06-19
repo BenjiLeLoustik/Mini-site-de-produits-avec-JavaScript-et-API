@@ -1201,18 +1201,17 @@ body .product {
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  height: 100%;
-  max-height: 100%;
+  height: auto;
   overflow: hidden;
-  width: 100%;
+  width: 1180px;
   padding: 20px 10px;
-  margin: auto;
+  margin: 0 auto;
 }
 html .product .view,
 body .product .view {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
   height: 100%;
   width: 100%;
@@ -1283,45 +1282,144 @@ body .product .view .product-informations {
   gap: 10px;
   width: 100%;
   height: 100%;
+  padding: 40px 20px;
 }
-html .product .view .product-informations .separate,
-body .product .view .product-informations .separate {
+html .product .view .product-informations .product-brand,
+body .product .view .product-informations .product-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  color: #0d6efd;
+  font-weight: 800;
+  font-size: 14px;
   width: 100%;
-  min-height: 3px;
-  border-radius: 23px;
-  background: #eeeeee;
+  height: 30px;
+  min-height: 30px;
 }
 html .product .view .product-informations .product-title,
 body .product .view .product-informations .product-title {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
+  text-transform: uppercase;
   color: #2E2E2E;
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 800;
+  font-size: 40px;
   width: 100%;
-  min-height: 50px;
-  height: 50px;
+  height: auto;
 }
-html .product .view .product-informations .product-title span.rate,
-body .product .view .product-informations .product-title span.rate {
+html .product .view .product-informations .product-rate,
+body .product .view .product-informations .product-rate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 5px;
   color: #505050;
-  font-weight: 300;
-  font-size: 14px;
+  width: 100%;
 }
-html .product .view .product-informations .product-title span.rate .rateAverage,
-body .product .view .product-informations .product-title span.rate .rateAverage,
-html .product .view .product-informations .product-title span.rate .totalVote,
-body .product .view .product-informations .product-title span.rate .totalVote {
-  font-weight: 600;
+html .product .view .product-informations .product-rate .note .average,
+body .product .view .product-informations .product-rate .note .average {
   color: #2E2E2E;
+  font-weight: 500;
 }
 html .product .view .product-informations .product-description,
 body .product .view .product-informations .product-description {
-  font-size: 16px;
-  color: #2E2E2E;
-  font-weight: 300;
+  font-weight: 400;
+  color: #505050;
+  font-size: 14px;
+  text-align: left;
   width: 100%;
   height: auto;
+}
+html .product .view .product-informations .product-category,
+body .product .view .product-informations .product-category {
+  width: 100%;
+}
+html .product .view .product-informations .product-category a,
+body .product .view .product-informations .product-category a {
+  font-weight: 800;
+  color: #505050;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+html .product .view .product-informations .product-category a:hover,
+body .product .view .product-informations .product-category a:hover {
+  text-decoration: underline;
+  color: #2E2E2E;
+  transition: all 0.3s;
+}
+html .product .view .product-informations .product-discount-price,
+body .product .view .product-informations .product-discount-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  height: auto;
+}
+html .product .view .product-informations .product-discount-price .price,
+body .product .view .product-informations .product-discount-price .price {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2E2E2E;
+}
+html .product .view .product-informations .product-discount-price .discount,
+body .product .view .product-informations .product-discount-price .discount {
+  font-weight: 700;
+  color: #0d6efd;
+  border-radius: 3px;
+  padding: 5px 10px;
+  background: #0d6dfd6e;
+}
+html .product .view .product-informations .product-price,
+body .product .view .product-informations .product-price {
+  font-weight: 300;
+  font-size: 16px;
+  color: #505050;
+  text-decoration: line-through;
+}
+html .product .view .product-informations .product-availability-status,
+body .product .view .product-informations .product-availability-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 100%;
+  height: 30px;
+  min-height: 30px;
+}
+html .product .view .product-informations .product-availability-status .status,
+body .product .view .product-informations .product-availability-status .status {
+  width: 10px;
+  min-width: 10px;
+  height: 10px;
+}
+html .product .view .product-informations .product-availability-status .status .round,
+body .product .view .product-informations .product-availability-status .status .round {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+html .product .view .product-informations .product-availability-status .status .round.empty,
+body .product .view .product-informations .product-availability-status .status .round.empty {
+  background: #dc3545;
+}
+html .product .view .product-informations .product-availability-status .status .round.stock,
+body .product .view .product-informations .product-availability-status .status .round.stock {
+  background: #20c997;
+}
+html .product .view .product-informations .product-availability-status .text,
+body .product .view .product-informations .product-availability-status .text {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  font-weight: 700;
+  color: #505050;
+}
+html .product .view .product-informations .product-availability-status .text .countStock,
+body .product .view .product-informations .product-availability-status .text .countStock {
+  font-weight: 400;
 }

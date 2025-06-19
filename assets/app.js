@@ -56,23 +56,52 @@ const findOneProduct = ( product ) => {
         listImages.innerHTML += `<img src='${product.images[i]}' alt='img-${i}' class='striped ${selected} previewImageProduct' onclick='selectPreviewImage( this )' />`;
     }
 
+    /* Affichage de la marque du produit */
+    let productBrandHTML         = document.querySelector(".product-informations .product-brand");
+    productBrandHTML.innerText   = product.brand;
+
     /* Affichage du titre du produit */
-    let productElementTitle = document.querySelector(".product .product-informations .product-title span.title");
-    productElementTitle.innerText = product.title;
+    let productTitleHTML        = document.querySelector(".product-informations .product-title");
+    productTitleHTML.innerText  = product.title;
 
-    /* Affichage de la note du produit */
-    let productElementRateAverage = document.querySelector(".product .product-informations .product-title .rate .rateAverage");
-    productElementRateAverage.innerText = product.rating;
+    /* Affichage de la moyenne des votes du produit */
+    let productAverageHTML          = document.querySelector(".product-informations .product-rate .note .average");
+    productAverageHTML.innerText    = product.rating;
 
-    /* Affichage du nombre total de votes du produit */
-    let productElementTotalVote = document.querySelector(".product .product-informations .product-title .rate .totalVote");
-    productElementTotalVote.innerText = product.reviews.length;
+    /* Affichage de la totalitées des votes du produit */
+    let productTotalVotesHTML       = document.querySelector(".product-informations .product-rate .votes .totalVote");
+    productTotalVotesHTML.innerText = product.reviews.length;
 
     /* Affichage de la description du produit */
-    let productElementDescription = document.querySelector(".product .product-informations .product-description");
-    productElementDescription.innerText = product.description;
+    let productDescriptionHTML          = document.querySelector(".product-informations .product-description");
+    productDescriptionHTML.innerText    = product.description;
 
+    /* Affichage de la catégorie du produit */
+    let productCategoryHTML         = document.querySelector(".product-informations .product-category a");
+    productCategoryHTML.innerText   = product.category;
+    productCategoryHTML.href        = `/category/${product.category}`;
 
+    /* Affichage du prix avec réduction du produit */
+    let productPriceReductionHTML       = document.querySelector(".product-informations .product-discount-price .price");
+    let priceWithReduction              = ( product.price - ( product.discountPercentage / 100 ) * product.price ).toFixed(2);
+    productPriceReductionHTML.innerText = `${priceWithReduction}€`;
+
+    /* Affichage du pourcentage de réduction du produit */
+    let productPriceDiscountPercentage = document.querySelector(".product-informations .product-discount-price .discount");
+    productPriceDiscountPercentage.innerText = `-${product.discountPercentage}%`;
+
+    /* Affichage du prix de base du produit */
+    let productPriceDefault = document.querySelector(".product-informations .product-price .price");
+    productPriceDefault.innerText = `${product.price}€`;
+
+    /* Affichage de la disponibilitée du produit */
+    let productAvailabilityStatusHTML   = document.querySelector(".product-informations .product-availability-status .status .round");
+    let productAvailabilityTextHTML     = document.querySelector(".product-informations .product-availability-status .text .txt");
+    let productAvailabilityStockHTML    = document.querySelector(".product-informations .product-availability-status .text .countStock");
+
+    productAvailabilityStatusHTML.classList.add( ( product.stock == 0 ) ? 'empty' : 'stock' );
+    productAvailabilityTextHTML.innerText = product.availabilityStatus;
+    productAvailabilityStockHTML.innerText = `- ${product.stock} restant(s)`;
 }
 
 /* Affichage d'une image du produit */
