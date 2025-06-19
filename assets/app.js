@@ -56,7 +56,21 @@ const findOneProduct = ( product ) => {
         listImages.innerHTML += `<img src='${product.images[i]}' alt='img-${i}' class='striped ${selected} previewImageProduct' onclick='selectPreviewImage( this )' />`;
     }
 
-    
+    /* Affichage du titre du produit */
+    let productElementTitle = document.querySelector(".product .product-informations .product-title span.title");
+    productElementTitle.innerText = product.title;
+
+    /* Affichage de la note du produit */
+    let productElementRateAverage = document.querySelector(".product .product-informations .product-title .rate .rateAverage");
+    productElementRateAverage.innerText = product.rating;
+
+    /* Affichage du nombre total de votes du produit */
+    let productElementTotalVote = document.querySelector(".product .product-informations .product-title .rate .totalVote");
+    productElementTotalVote.innerText = product.reviews.length;
+
+    /* Affichage de la description du produit */
+    let productElementDescription = document.querySelector(".product .product-informations .product-description");
+    productElementDescription.innerText = product.description;
 
 
 }

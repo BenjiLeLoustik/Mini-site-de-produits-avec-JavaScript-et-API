@@ -1276,6 +1276,52 @@ body .product .view .product-images .image-container .list-images img.selected {
 }
 html .product .view .product-informations,
 body .product .view .product-informations {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
   width: 100%;
   height: 100%;
+}
+html .product .view .product-informations .separate,
+body .product .view .product-informations .separate {
+  width: 100%;
+  min-height: 3px;
+  border-radius: 23px;
+  background: #eeeeee;
+}
+html .product .view .product-informations .product-title,
+body .product .view .product-informations .product-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  color: #2E2E2E;
+  font-weight: 700;
+  font-size: 20px;
+  width: 100%;
+  min-height: 50px;
+  height: 50px;
+}
+html .product .view .product-informations .product-title span.rate,
+body .product .view .product-informations .product-title span.rate {
+  color: #505050;
+  font-weight: 300;
+  font-size: 14px;
+}
+html .product .view .product-informations .product-title span.rate .rateAverage,
+body .product .view .product-informations .product-title span.rate .rateAverage,
+html .product .view .product-informations .product-title span.rate .totalVote,
+body .product .view .product-informations .product-title span.rate .totalVote {
+  font-weight: 600;
+  color: #2E2E2E;
+}
+html .product .view .product-informations .product-description,
+body .product .view .product-informations .product-description {
+  font-size: 16px;
+  color: #2E2E2E;
+  font-weight: 300;
+  width: 100%;
+  height: auto;
 }
