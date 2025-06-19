@@ -1423,3 +1423,26 @@ html .product .view .product-informations .product-availability-status .text .co
 body .product .view .product-informations .product-availability-status .text .countStock {
   font-weight: 400;
 }
+html .product .view .product-informations .product-warranty,
+body .product .view .product-informations .product-warranty {
+  width: 100%;
+  font-weight: 500;
+  color: #505050;
+}
+html .product .view .product-informations .product-shipping,
+body .product .view .product-informations .product-shipping {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+html .product .view .product-informations .product-shipping .title,
+body .product .view .product-informations .product-shipping .title {
+  font-weight: 400;
+  color: #505050;
+}
+html .product .view .product-informations .product-shipping .txt,
+body .product .view .product-informations .product-shipping .txt {
+  font-weight: 700;
+  color: #2E2E2E;
+}

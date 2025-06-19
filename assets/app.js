@@ -98,10 +98,17 @@ const findOneProduct = ( product ) => {
     let productAvailabilityStatusHTML   = document.querySelector(".product-informations .product-availability-status .status .round");
     let productAvailabilityTextHTML     = document.querySelector(".product-informations .product-availability-status .text .txt");
     let productAvailabilityStockHTML    = document.querySelector(".product-informations .product-availability-status .text .countStock");
-
     productAvailabilityStatusHTML.classList.add( ( product.stock == 0 ) ? 'empty' : 'stock' );
     productAvailabilityTextHTML.innerText = product.availabilityStatus;
     productAvailabilityStockHTML.innerText = `- ${product.stock} restant(s)`;
+
+    /* Affichage de la garantie du produit */
+    let productWarrantyHTML = document.querySelector(".product-informations .product-warranty");
+    productWarrantyHTML.innerText = product.warrantyInformation;
+
+    /* Affiche de la livraison du produit */
+    let productShippingTxtHTML = document.querySelector(".product-informations .product-shipping .txt");
+    productShippingTxtHTML.innerHTML = product.shippingInformation;
 }
 
 /* Affichage d'une image du produit */
