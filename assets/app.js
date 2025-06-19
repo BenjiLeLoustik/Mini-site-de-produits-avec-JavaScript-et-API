@@ -5,3 +5,4 @@ const toggleResponsiveHeaderNavbar = () => {
     button.classList.toggle("activeResponsiveNavbar");
     navbar.classList.toggle("activeNavbar")
 }
+

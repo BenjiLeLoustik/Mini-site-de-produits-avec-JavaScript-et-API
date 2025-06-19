@@ -43,6 +43,7 @@ html, body {
         padding: 10px;
         width: 100%;
         height: 70px;
+        min-height: 70px;
 
         .logo {
             font-weight: 900;
@@ -93,6 +94,8 @@ html, body {
             justify-content: space-between;
             flex-direction: column;
 
+            background: #F9F9F9;
+
             padding: 10px;
             position: absolute;
             top: 70px;
@@ -101,6 +104,7 @@ html, body {
             width: 350px;
             bottom: 0;
             transition: all .3s;
+            z-index: 1000;
 
             &.activeNavbar {
                 width: 350px;
@@ -169,6 +173,127 @@ html, body {
                 
                 width: 100%;
                 height: 30px;
+            }
+        }
+    }
+
+    /* Products */
+    .products {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        height: 100%;
+        width: 70%;
+        padding: 20px 10px;
+        margin: auto;
+
+        .list {
+            display: grid;
+            grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+            width: 100%;
+            height: auto;
+            gap: 10px;
+
+            a.product {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+
+                text-decoration: none;
+
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                background: transparent;
+                transition: all .3s;
+
+                .product-img {
+                    background: #FFFFFF;
+
+                    width: 100%;
+                    height: 150px;
+                    border-radius: 10px;
+                    position: relative;
+
+                    .product-category {
+                        font-weight: 700;
+                        font-size: 13px;
+                        text-transform: uppercase;
+                        color: #2E2E2E;
+
+                        background: #F9F9F9;
+
+                        width: auto;
+                        position: absolute;
+                        top: 10px; right: 10px;
+                        padding: 10px;
+                        border-radius: 23px;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px;
+                        object-fit: contain;
+                    }
+                }
+
+                .product-name {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    font-size: 16px;
+                    font-weight: 600;
+                    text-align: center;
+                    color: #2E2E2E;
+
+                    width: 100%;
+                    height: 40px;
+                }
+
+                .product-rate {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 3px;
+
+                    color: #505050;
+                    font-weight: 500;
+
+                    width: 100%;
+                    height: 30px;
+
+                    b {
+                        color: #2E2E2E;
+                    }
+
+                    span {
+                        font-size: 13px;
+                    }
+                }
+
+                .product-price {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    font-size: 25px;
+                    color: #0d6efd;
+                    font-weight: 700;
+
+                    width: 100%;
+                    height: 40px;
+                }
+
+                &:hover {
+                    background: #FFFFFF;
+                    transition: all .3s;
+                }
             }
         }
     }

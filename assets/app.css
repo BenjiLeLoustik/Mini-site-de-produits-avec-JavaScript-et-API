@@ -901,6 +901,7 @@ body {
   margin: 0;
   overflow: hidden;
   /* Header */
+  /* Products */
 }
 html .striped,
 body .striped {
@@ -917,6 +918,7 @@ body header {
   padding: 10px;
   width: 100%;
   height: 70px;
+  min-height: 70px;
 }
 html header .logo,
 body header .logo {
@@ -981,6 +983,7 @@ body header nav.navbar {
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
+  background: #F9F9F9;
   position: absolute;
   top: 70px;
   padding: 10px;
@@ -988,6 +991,7 @@ body header nav.navbar {
   width: 350px;
   bottom: 0;
   transition: all 0.3s;
+  z-index: 1000;
 }
 html header nav.navbar.activeNavbar,
 body header nav.navbar.activeNavbar {
@@ -1055,4 +1059,113 @@ body header nav.navbar .copyright {
   color: #8E8E8E;
   width: 100%;
   height: 30px;
+}
+html .products,
+body .products {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  width: 70%;
+  padding: 20px 10px;
+  margin: auto;
+}
+html .products .list,
+body .products .list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  width: 100%;
+  height: auto;
+  gap: 10px;
+}
+html .products .list a.product,
+body .products .list a.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-decoration: none;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: transparent;
+  transition: all 0.3s;
+}
+html .products .list a.product .product-img,
+body .products .list a.product .product-img {
+  background: #FFFFFF;
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  position: relative;
+}
+html .products .list a.product .product-img .product-category,
+body .products .list a.product .product-img .product-category {
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #2E2E2E;
+  background: #F9F9F9;
+  width: auto;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  border-radius: 23px;
+}
+html .products .list a.product .product-img img,
+body .products .list a.product .product-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+}
+html .products .list a.product .product-name,
+body .products .list a.product .product-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #2E2E2E;
+  width: 100%;
+  height: 40px;
+}
+html .products .list a.product .product-rate,
+body .products .list a.product .product-rate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #505050;
+  font-weight: 500;
+  width: 100%;
+  height: 30px;
+}
+html .products .list a.product .product-rate b,
+body .products .list a.product .product-rate b {
+  color: #2E2E2E;
+}
+html .products .list a.product .product-rate span,
+body .products .list a.product .product-rate span {
+  font-size: 13px;
+}
+html .products .list a.product .product-price,
+body .products .list a.product .product-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: #0d6efd;
+  font-weight: 700;
+  width: 100%;
+  height: 40px;
+}
+html .products .list a.product:hover,
+body .products .list a.product:hover {
+  background: #FFFFFF;
+  transition: all 0.3s;
 }
