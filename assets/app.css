@@ -931,6 +931,11 @@ body header .logo {
   font-size: 25px;
   width: 100%;
 }
+html header .logo a,
+body header .logo a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
 html header button.toggleResponsiveNavbar,
 body header button.toggleResponsiveNavbar {
   display: flex;
@@ -1085,6 +1090,7 @@ body .products {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  gap: 20px;
   height: 100%;
   max-height: 100%;
   overflow: hidden;
