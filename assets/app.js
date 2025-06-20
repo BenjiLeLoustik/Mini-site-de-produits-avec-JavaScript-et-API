@@ -1,3 +1,59 @@
+async function init(){
+
+    console.log( this.window );
+    if( this.window.location.pathname == "/index.html" || this.window.location.pathname == "" || this.window.location.pathname == "/" ){
+        let paramURL = new URLSearchParams( location.search );
+        if( paramURL.size == 1 ){
+            try {
+                const url = `https://dummyjson.com/products/category/${paramURL.get("category")}`;
+                const response = await axios.get(url);
+                const products = await response.data.products;
+                findAllProducts(products);
+            }catch(error){
+                console.log(error);
+            }
+
+        }else{
+            try {
+                const url = 'https://dummyjson.com/products';
+                const response = await axios.get(url);
+                const products = await response.data.products;
+                findAllProducts(products);
+            }catch(error){
+                console.log(error);
+            }
+        }
+        
+        
+    }
+
+    if( this.window.location.pathname == "/detailsProduct.html" ){
+        let paramsURL = new URLSearchParams( location.search );
+                
+        if( paramsURL.size == 1 ){
+
+            let articleId = paramsURL.get("id");
+            if( articleId == undefined || articleId == "" ){
+                this.window.location.href = "./index.html";
+            }
+
+            try {
+                const url = `https://dummyjson.com/products/${articleId}`;
+                const response = await axios.get(url);
+                const product = await response.data;
+                findOneProduct(product);
+            }catch(error){
+                console.log(error);
+            }
+
+        }else{
+            this.window.location.href = "./index.html";
+        }
+            
+    }
+
+}
+
 /* Activation / Desactivation de la navbar */
 const toggleResponsiveHeaderNavbar = () => {
     const navbar = document.querySelector("header nav.navbar");
@@ -81,7 +137,7 @@ const findOneProduct = ( product ) => {
     /* Affichage de la catégorie du produit */
     let productCategoryHTML         = document.querySelector(".product-informations .product-category a");
     productCategoryHTML.innerText   = product.category;
-    productCategoryHTML.href        = `/category/${product.category}`;
+    productCategoryHTML.href        = `./index.html?category=${product.category}`;
 
     /* Affichage du prix avec réduction du produit */
     let productPriceReductionHTML       = document.querySelector(".product-informations .product-discount-price .price");
@@ -137,6 +193,8 @@ const showProductComments = ( reviews ) => {
     let reviewsContent = document.querySelector(".product .reviews");
     for( const review of reviews ){
 
+        let reviewDate = new Date( review.date );
+
         let rateStars = "";
 
         for( let i = 0; i < review.rating; i++ ){
@@ -155,7 +213,7 @@ const showProductComments = ( reviews ) => {
                                                 <span class="email">(${review.reviewerEmail})</span>
                                             </div>
                                             <div class="reviewerComment">${review.comment}</div>
-                                            <div class="reviewerDate">${review.date}</div>
+                                            <div class="reviewerDate">${reviewDate}</div>
                                         </div>
                                         <div class="rate">
                                             ${rateStars}
@@ -168,46 +226,6 @@ const showProductComments = ( reviews ) => {
 window.addEventListener("load", (event) => {
     init();
 });
-
-async function init(){
-
-    if( this.window.location.pathname.split("/")[1] == "index.html" || this.window.location.pathname.split("/")[1] == "" ){
-        try {
-            const url = 'https://dummyjson.com/products';
-            const response = await axios.get(url);
-            const products = await response.data.products;
-            findAllProducts(products);
-        }catch(error){
-            console.log(error);
-        }
-    }
-
-    if( this.window.location.pathname.split("/")[1] == "detailsProduct.html" ){
-        let paramsURL = new URLSearchParams( location.search );
-                
-        if( paramsURL.size == 1 ){
-
-            let articleId = paramsURL.get("id");
-            if( articleId == undefined || articleId == "" ){
-                this.window.location.href = "./index.html";
-            }
-
-            try {
-                const url = `https://dummyjson.com/products/${articleId}`;
-                const response = await axios.get(url);
-                const product = await response.data;
-                findOneProduct(product);
-            }catch(error){
-                console.log(error);
-            }
-
-        }else{
-            this.window.location.href = "./index.html";
-        }
-            
-    }
-
-}
 
 
     
