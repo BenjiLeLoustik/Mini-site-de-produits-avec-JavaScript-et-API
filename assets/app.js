@@ -1,6 +1,6 @@
 async function init(){
 
-    console.log( this.window );
+    console.log( document.location );
     if( this.window.location.pathname == "/index.html" || this.window.location.pathname == "" || this.window.location.pathname == "/" ){
         let paramURL = new URLSearchParams( location.search );
         if( paramURL.size == 1 ){
