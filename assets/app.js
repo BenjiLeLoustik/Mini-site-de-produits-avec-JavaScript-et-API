@@ -1,8 +1,6 @@
 async function init(){
 
-    console.log( document.location );
-    if( this.window.location.pathname == "/index.html" || this.window.location.pathname == "" || this.window.location.pathname == "/" ){
-        let paramURL = new URLSearchParams( location.search );
+    let paramURL = new URLSearchParams( location.search );
         if( paramURL.size == 1 ){
             try {
                 const url = `https://dummyjson.com/products/category/${paramURL.get("category")}`;
@@ -23,9 +21,6 @@ async function init(){
                 console.log(error);
             }
         }
-        
-        
-    }
 
     if( this.window.location.pathname == "/detailsProduct.html" ){
         let paramsURL = new URLSearchParams( location.search );
